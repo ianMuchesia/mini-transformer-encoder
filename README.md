@@ -3,6 +3,7 @@ Mini project exploring transformer encoder building blocks with a focus on posit
 
 ## What is here
 - Positional encoding implementation in src
+- Multi-head attention module in src
 - Notebook walkthroughs in notebooks
 - Experiment outputs in experiments
 - Notes in math-notes
