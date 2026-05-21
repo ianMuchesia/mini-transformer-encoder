@@ -1,13 +1,18 @@
 # mini-transformer-encoder
-Mini project exploring transformer encoder building blocks with a focus on positional encoding.
+Implementation of a transformer encoder architecture with core components, experiments, and notebook-driven debugging.
 
-## What is here
-- Positional encoding implementation in src
-- Multi-head attention module in src
-- Notebook walkthroughs in notebooks
-- Experiment outputs in experiments
-- Notes in math-notes
+## Scope
+- Positional encoding
+- Multi-head attention
+- Encoder blocks with residuals and layer norm
+- Lightweight classifier head
+
+## Project layout
+- src: model components
+- notebooks: development and debugging
+- experiments: plots and logs
+- math-notes: derivations and explanations
 
 ## Quick start
-1) Create venv and install deps
-2) Run the notebook in notebooks
+1) Create a virtual environment and install dependencies
+2) Run the notebook in notebooks to validate shapes and behavior
