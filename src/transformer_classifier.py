@@ -1,11 +1,11 @@
 import torch
 import torch.nn as nn
-from positional_encoding import PositonalEncoding
-from encoder_block import EncoderBlock
+from src.positional_encoding import PositonalEncoding
+from src.encoder_block import EncoderBlock
 
 
 class TransformerClassifier(nn.Module):
-    def __init__(self,vocab_size,d_model,num_heads,num_layers,num_classes ):
+    def __init__(self,vocab_size,d_model,num_heads,num_layers,num_classes,max_len ):
         super().__init__()
         
         
@@ -13,7 +13,7 @@ class TransformerClassifier(nn.Module):
         self.embedding = nn.Embedding(num_embeddings=vocab_size,embedding_dim=d_model)
         
         #2. The timestamp
-        self.pos_encoding = PositonalEncoding(d_model)
+        self.pos_encoding = PositonalEncoding(max_len,d_model)
         
         #3. The stack of blocks
         self.layers = nn.ModuleList([

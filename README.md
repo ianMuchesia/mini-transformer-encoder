@@ -6,12 +6,14 @@ Implementation of a transformer encoder architecture with core components, exper
 - Multi-head attention
 - Encoder blocks with residuals and layer norm
 - Lightweight classifier head
+- Basic tokenizer and text classification pipeline
 
 ## Project layout
-- src: model components
-- notebooks: development and debugging
+- src: model components, encoder blocks, classifier, tokenizer
+- notebooks: development, debugging, and training experiments
 - experiments: plots and logs
 - math-notes: derivations and explanations
+- data: local dataset and vocabulary
 
 ## Quick start
 1) Create a virtual environment and install dependencies
