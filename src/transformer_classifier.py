@@ -25,7 +25,7 @@ class TransformerClassifier(nn.Module):
       
         
     def forward(self,X,mask):
-        
+        scores = []
         out1 = self.embedding(X)
         
         
@@ -34,14 +34,15 @@ class TransformerClassifier(nn.Module):
         out3 = out2
         
         for layer in self.layers:
-            out3 = layer(out3,mask)
+            out3,score = layer(out3,mask)
+            scores.append(score)
             
         
         out4 = out3.mean(dim=1)
         
         out5 = self.classifier(out4)
         
-        return out5
+        return out5,scores
             
         
         

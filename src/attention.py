@@ -34,8 +34,8 @@ class MultiHeadAttention(nn.Module):
         Q,K,V = self.compute_qkv(X)
         
         #print(f"Q shape before head splitting {Q.shape}")
+       
         Q = Q.reshape(Q.size(0),Q.size(1),self.num_heads,self.head_dims).transpose(1,2)
-        
         # print(f"Q shape after head splitting {Q.shape}")
         
         # print(f"K shape before head splitting {K.shape}")

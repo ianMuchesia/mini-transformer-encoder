@@ -32,10 +32,10 @@ class EncoderBlock(nn.Module):
 
         out4 = self.ffn(out3)
         
-        out5 =  out4 + out2
+        out5 =  out4 + out3
         
         out6 = self.norm2(out5)
         
-        return out6        
+        return out6,w        
         
         
