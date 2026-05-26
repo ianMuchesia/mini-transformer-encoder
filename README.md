@@ -1,19 +1,22 @@
 # mini-transformer-encoder
-Implementation of a transformer encoder architecture with core components, experiments, and notebook-driven debugging.
+Transformer encoder implementation with core components, training scaffolds, and attention visualizations.
 
 ## Scope
 - Positional encoding
 - Multi-head attention
-- Encoder blocks with residuals and layer norm
+- Encoder block with residuals and layer norm
 - Lightweight classifier head
-- Basic tokenizer and text classification pipeline
+- Tokenizer and text classification pipeline
+
+## Artifacts
+- Heatmaps and plots in experiments
+- Math notes (LayerNorm, residual flow) in math-notes
 
 ## Project layout
-- src: model components, encoder blocks, classifier, tokenizer
-- notebooks: development, debugging, and training experiments
-- experiments: plots and logs
-- math-notes: derivations and explanations
-- data: local dataset and vocabulary
+- src: model components and utilities
+- notebooks: experiments and debugging
+- experiments: outputs and visuals
+- math-notes: derivations and references
 
 ## Quick start
 1) Create a virtual environment and install dependencies
