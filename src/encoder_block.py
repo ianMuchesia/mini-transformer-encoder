@@ -22,20 +22,29 @@ class EncoderBlock(nn.Module):
         
         
         
-    def forward(self,X,mask):
+    def forward(self, X, mask):
         
-        out1,w = self.mha(X,mask)
+        # --- MULTI-HEAD ATTENTION BLOCK ---
+        # 1. Normalize a COPY of the input for the heavy machinery
+        norm_x = self.norm1(X)
         
-        out2 = out1 + X
+        # 2. Run the normalized data through the attention heads
+        attn_out, w = self.mha(norm_x, mask)
         
-        out3 = self.norm1(out2)
-
-        out4 = self.ffn(out3)
+        # 3. TRUE RESIDUAL: Add the attention output to the PURE, un-normalized X
+        out1 = attn_out + X
         
-        out5 =  out4 + out3
         
-        out6 = self.norm2(out5)
+        # --- FEED-FORWARD BLOCK ---
+        # 4. Normalize a COPY of the new baseline for the FFN
+        norm_out1 = self.norm2(out1)
         
-        return out6,w        
+        # 5. Run the normalized data through the reasoning engine
+        ffn_out = self.ffn(norm_out1)
         
+        # 6. TRUE RESIDUAL: Add the FFN output back to the PURE out1 baseline
+        out2 = ffn_out + out1
+        
+        return out2, w
+            
         
